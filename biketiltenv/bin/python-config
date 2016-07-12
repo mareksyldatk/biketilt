@@ -1,4 +1,4 @@
-#!/Users/topmarek/Documents/git/bike_tilt/biketiltenv/bin/python
+#!/Users/marek/Documents/git/biketilt/biketiltenv/bin/python
 
 import sys
 import getopt
