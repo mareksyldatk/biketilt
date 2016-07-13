@@ -2,6 +2,8 @@
 run.py project file
 
 """
+from imposm.parser import OSMParser
+
 # simple class that handles the parsed OSM data.
 class HighwayCounter(object):
     highways = 0
@@ -15,7 +17,7 @@ class HighwayCounter(object):
 # instantiate counter and parser and start parsing
 counter = HighwayCounter()
 p = OSMParser(concurrency=4, ways_callback=counter.ways)
-p.parse('germany.osm.pbf')
+p.parse('zachodniopomorskie-latest.osm.pbf')
 
 # done
 print counter.highways
