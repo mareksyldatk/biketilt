@@ -17,7 +17,7 @@ class HighwayCounter(object):
 # instantiate counter and parser and start parsing
 counter = HighwayCounter()
 p = OSMParser(concurrency=4, ways_callback=counter.ways)
-p.parse('zachodniopomorskie-latest.osm.pbf')
+p.parse('data/zachodniopomorskie-latest.osm.pbf')
 
 # done
 print counter.highways

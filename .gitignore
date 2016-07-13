@@ -1,6 +1,10 @@
 # Virtual Environemtnt
 biketiltenv/*
 
+# Data folder
+biketilt/data
+biketilt/data/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
