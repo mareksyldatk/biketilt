@@ -14,25 +14,10 @@ To activate virtual environment, type `source biketiltenv/bin/activate` and to d
 
 
 ## Installation
-Install homebrew 
-
-```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
-Install protocol buffers
-
-```
-brew install protobuf
-```
-
-To install `imposm.parser` one needs `c` compiler, e.g. `xcode`. When available, activate virtuale nvironment and install parser
-
-```
-source biketiltenv/bin/activate
-CC=clang // this shit according to http://stackoverflow.com/questions/32846806/compilation-error-when-using-gcc-in-osx-10-10-5
-pip install imposm.parser
-```
+To install `imposm.parser`
+- get [easy_install]( http://askubuntu.com/questions/27519/can-i-use-easy-install )
+- install [this](http://stackoverflow.com/questions/26053982/error-setup-script-exited-with-error-command-x86-64-linux-gnu-gcc-failed-wit)
+- and [this](https://imposm.org/docs/imposm.parser/latest/install.html)
 
 Install Google Maps Services Python
 
