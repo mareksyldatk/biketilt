@@ -3,9 +3,9 @@ biketiltenv/*
 
 # Data folder
 biketilt/data
-biketilt/data/*
-biketilt/.idea
-biketilt/.idea/*
+biketilt/data/**
+.idea
+.idea/**
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
