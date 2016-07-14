@@ -1,12 +1,8 @@
-"""
-run.py project file
-
-"""
 from imposm.parser import OSMParser
 import pandas
 import pickle
 
-# simple class that handles the parsed OSM data.
+# Simple class that handles the parsed OSM data.
 class Callbacks(object):
     coords = list()
     ways = list()
@@ -23,7 +19,7 @@ class Callbacks(object):
             self.coords.append((osmid, lon, lat))
 
 
-# instantiate counter and parser and start parsing
+# Instantiate parser and start parsing
 callbacks = Callbacks()
 
 p1 = OSMParser(concurrency=4, coords_callback=callbacks.coords_callback)
@@ -32,12 +28,13 @@ p1.parse('data/zachodniopomorskie-latest.osm.pbf')
 p2 = OSMParser(concurrency=4, ways_callback=callbacks.ways_callback)
 p2.parse('data/zachodniopomorskie-latest.osm.pbf')
 
-# done
+# Extracted data
 data_coords = pandas.DataFrame(callbacks.coords)
-data_coords.columns = ['id', 'lat', 'lon']
+data_coords.columns = ['id', 'lon', 'lat']
 
 data_ways = pandas.DataFrame(callbacks.ways)
 data_ways.columns = ['id', 'refs']
 
+# Dump data
 with open('extracted/zachodniopomorskie_trunk.pickle', 'wb') as handle:
     pickle.dump([data_ways, data_coords], handle)
