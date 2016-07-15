@@ -7,11 +7,11 @@ Hobby project for finding most curvy roads using Google Maps and OpenStreetMap.
 - Go to `biketilt` folder and create virtual environment using the `requirements.txt` file
  
 	```
-	conda env create -f requirements.txt
+	conda env create -f environment.yml
 	```
 - To activate this environment, use `source activate biketiltenv` and to deactivate this environment, use `source deactivate`.
 
-More info about exporting/importing/updating virtual environments can be found [**here**](http://conda.pydata.org/docs/using/envs.html).
+More info about exporting/importing/updating virtual environments can be found [**in the conda documentation**](http://conda.pydata.org/docs/using/envs.html).
 
 ## Sources
 - [Open Street Map (OSM) data](http://download.geofabrik.de/europe/poland.html)
