@@ -11,6 +11,24 @@ Hobby project for finding most curvy roads using Google Maps and OpenStreetMap.
 	```
 - To activate this environment, use `source activate biketiltenv` and to deactivate this environment, use `source deactivate`.
 
+- Export `.yml` and `requirements.txt`
+
+	```
+	source activate biketiltenv
+	conda list -e > requirements.txt
+	conda env export > environment.yml
+	source deactivate
+	```
+- Install packages in requirements
+
+	```
+	source activate biketiltenv
+	conda install --file requirements.txt
+	source deactivate
+	```
+
+ 
+
 More info about exporting/importing/updating virtual environments can be found [**in the conda documentation**](http://conda.pydata.org/docs/using/envs.html).
 
 ## Sources
