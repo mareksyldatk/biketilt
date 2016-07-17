@@ -3,15 +3,18 @@ dependencies:
 - biopython=1.67=np111py27_0
 - cycler=0.10.0=py27_0
 - freetype=2.5.5=1
+- hdf5=1.8.16=0
 - libpng=1.6.22=0
 - matplotlib=1.5.1=np111py27_0
 - mkl=11.3.3=0
+- numexpr=2.6.0=np111py27_0
 - numpy=1.11.1=py27_0
 - openssl=1.0.2h=1
 - pandas=0.18.1=np111py27_0
 - pip=8.1.2=py27_0
 - pyparsing=2.1.4=py27_0
 - pyqt=4.11.4=py27_3
+- pytables=3.2.2=np111py27_4
 - python=2.7.12=1
 - python-dateutil=2.5.3=py27_0
 - pytz=2016.4=py27_0
@@ -28,4 +31,5 @@ dependencies:
   - googlemaps==2.4.4
   - imposm.parser==1.0.7
   - requests==2.10.0
+  - tables==3.2.2
 
