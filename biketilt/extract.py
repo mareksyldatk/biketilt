@@ -33,5 +33,5 @@ data_ways = pandas.DataFrame(callbacks.ways)
 data_ways.columns = ['id', 'tags', 'refs']
 
 # Dump data
-with open('extracted/zachodniopomorskie_trunk.pickle', 'wb') as handle:
+with open('extracted/zachodniopomorskie.pickle', 'wb') as handle:
     pickle.dump([data_ways, data_coords], handle)

@@ -2,10 +2,10 @@
 biketiltenv/*
 
 # Data folder
-biketilt/data
-biketilt/data/**
 .idea
 .idea/**
+*.pickle
+*.pbf
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
