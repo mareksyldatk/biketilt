@@ -20,18 +20,22 @@ class Callbacks(object):
 
 
 # Instantiate parser and start parsing
-callbacks = Callbacks()
-p = OSMParser(concurrency=4, coords_callback=callbacks.coords_callback)
-p.parse('data/zachodniopomorskie-latest.osm.pbf')
-data_coords = pandas.DataFrame(callbacks.coords)
-data_coords.columns = ['id', 'lon', 'lat']
+FILENAMES = ['data/zachodniopomorskie-latest.osm.pbf', 'data/pomorskie-latest.osm.pbf']
+OUTPUT_FILE = ['data/zachodniopomorskie.pickle',  'data/pomorskie.pickle']
 
-callbacks = Callbacks()
-p = OSMParser(concurrency=4, ways_callback=callbacks.ways_callback)
-p.parse('data/zachodniopomorskie-latest.osm.pbf')
-data_ways = pandas.DataFrame(callbacks.ways)
-data_ways.columns = ['id', 'tags', 'refs']
+for ix, FILE in enumerate(FILENAMES):
+    callbacks = Callbacks()
+    p = OSMParser(concurrency=4, coords_callback=callbacks.coords_callback)
+    p.parse(FILE)
+    data_coords = pandas.DataFrame(callbacks.coords)
+    data_coords.columns = ['id', 'lon', 'lat']
 
-# Dump data
-with open('extracted/zachodniopomorskie.pickle', 'wb') as handle:
-    pickle.dump([data_ways, data_coords], handle)
+    callbacks = Callbacks()
+    p = OSMParser(concurrency=4, ways_callback=callbacks.ways_callback)
+    p.parse(FILE)
+    data_ways = pandas.DataFrame(callbacks.ways)
+    data_ways.columns = ['id', 'tags', 'refs']
+
+    # Dump data
+    with open(OUTPUT_FILE[ix], 'w+') as handle:
+        pickle.dump([data_ways, data_coords], handle)

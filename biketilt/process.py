@@ -47,20 +47,24 @@ Process file
 if __name__ == "__main__":
 
     # Load data
-    with open('extracted/zachodniopomorskie.pickle', 'rb') as handle:
-        [raw_ways, raw_points] = pickle.load(handle)
+    FILENAMES = ['data/zachodniopomorskie.pickle', 'data/pomorskie.pickle']
+    OUTPUT_FILE = ['data/zachodniopomorskie.h5', 'data/pomorskie.h5']
 
-    # Process roads
-    desired_way_types = ['motorway', 'motorway_link', 'trunk', 'primary', 'primary_link', 'secondary', 'tertiary', 'unclassified', 'road', 'residential']
-    ways = process_ways(raw_ways, desired_way_types)
-    roads = join_ways_points(ways, raw_points)
+    for ix, FILE in enumerate(FILENAMES):
+        with open(FILE, 'rb') as handle:
+            [raw_ways, raw_points] = pickle.load(handle)
 
-    # Dump roads
-    FILENAME = 'data/zachodniopomorskie.h5'
-    if os.path.exists(FILENAME):
-        os.remove(FILENAME)
+        # Process roads
+        desired_way_types = ['motorway', 'motorway_link', 'trunk', 'primary', 'primary_link', 'secondary', 'tertiary', 'unclassified', 'road', 'residential']
+        ways = process_ways(raw_ways, desired_way_types)
+        roads = join_ways_points(ways, raw_points)
 
-    d = pandas.HDFStore(FILENAME, complevel=9, complib='blosc')
-    d['roads'] = roads
-    d.close()
+        # Dump roads
+        FILENAME = OUTPUT_FILE[ix]
+        if os.path.exists(FILENAME):
+            os.remove(FILENAME)
+
+        d = pandas.HDFStore(FILENAME, complevel=9, complib='blosc')
+        d['roads'] = roads
+        d.close()
 
